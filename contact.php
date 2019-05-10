@@ -5,6 +5,7 @@
  * Date: 10-5-2019
  * Time: 10:54
  */
+require_once 'DBConnect.php';
 
 ?>
 
@@ -29,12 +30,29 @@
     <input type="text" name="email" placeholder="E-mail"><br>
 
     <label for="bericht">Bericht</label>
-    <textarea rows="5" cols="25">
+    <textarea rows="5" cols="25" name="bericht">
     </textarea><br>
 
     <input type="submit" value="Verzend">
 
 </form>
 
+
+<?php
+$sql = "INSERT INTO contacts (name, email, message)
+        VALUES ('".$_POST["name"]."','".$_POST["email"]."','".$_POST["bericht"]."')";
+
+if (isset($_POST["name"],  $_POST["email"], $_POST["bericht"])){
+    if ($conn->query($sql) === TRUE) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+
+
+
+?>
 </body>
 </html>
