@@ -9,7 +9,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$db = "php8_opdr01b";
+$db = "php8_opdr01a";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $db);
