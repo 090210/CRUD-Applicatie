@@ -6,7 +6,6 @@
  * Time: 10:54
  */
 require_once 'DBConnect.php';
-
 ?>
 
 <html>
@@ -39,16 +38,9 @@ require_once 'DBConnect.php';
 
 
 <?php
-$sql = "INSERT INTO contacts (name, email, message)
-        VALUES ('".$_POST["name"]."','".$_POST["email"]."','".$_POST["bericht"]."')";
+$DBConnest = new DBConnect();
 
-if (isset($_POST["name"],  $_POST["email"], $_POST["bericht"])){
-    if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-}
+$DBConnest->storeInfo();
 
 
 
