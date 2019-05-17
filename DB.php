@@ -5,7 +5,7 @@
  * Date: 10-5-2019
  * Time: 11:12
  */
-class DBConnect
+class DB
 {
     public $conn;
     public $store;
@@ -22,8 +22,13 @@ class DBConnect
         $this->store = "INSERT INTO contacts (name, email, message) VALUES ('".$this->name."','".$this->email."','".$this->bericht."')";
 
         var_dump($this->name, $this->email, $this->bericht);
+    }
+
+    public function failedConn(){
         if ($this->conn->connect_error){
             die("Connection failed: " . $this->conn->connect_error);
+        } else {
+            return "Succesfully connected";
         }
     }
 

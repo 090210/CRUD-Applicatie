@@ -5,7 +5,7 @@
  * Date: 10-5-2019
  * Time: 10:54
  */
-require_once 'DBConnect.php';
+require_once 'DB.php';
 ?>
 
 <html>
@@ -38,9 +38,9 @@ require_once 'DBConnect.php';
 
 
 <?php
-$DBConnest = new DBConnect();
+$DB = new DB();
 
-$DBConnest->storeInfo();
+$DB->storeInfo();
 
 
 
