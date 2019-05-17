@@ -5,16 +5,18 @@
  * Date: 10-5-2019
  * Time: 11:12
  */
+class DBConnect
+{
+    public $conn;
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$db = "php8_opdr01a";
+    public function __construct()
+    {
+        $this->conn = new mysqli('localhost', 'root', '', 'php8_opdr01a');
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $db);
+        if ($this->conn->connect_error){
+            die("Connection failed: " . $this->conn->connect_error);
+        }
+    }
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+
 }
