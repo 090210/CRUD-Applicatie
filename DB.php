@@ -29,20 +29,13 @@ class DB
 
     public function storeInfo()
     {
-        // if (!isset($this->name) && isset($this->email) && isset($this->bericht)) {
-        //     echo "Store failed";
-        // } else {
-        //     if (isset($this->name) && isset($this->email) && isset($this->bericht)) {
-        //         if ($this->conn->query($this->store) === TRUE) {
-        //             echo "New record created successfully";
-        //         } else {
-        //             echo "Error: " . $this->store . "<br>" . $this->conn->error;
-        //         }
-        //     }
-        // }
-
-
-
+        if (isset($this->name) && isset($this->email) && isset($this->bericht)) {
+            if ($this->conn->query($this->store) === TRUE) {
+                echo "New record created successfully";
+            } else {
+                echo "Error: " . $this->store . "<br>" . $this->conn->error;
+            }
+        }
     }
 
 
