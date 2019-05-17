@@ -22,29 +22,27 @@ class DB
         $this->store = "INSERT INTO contacts (name, email, message) VALUES ('".$this->name."','".$this->email."','".$this->bericht."')";
 
         var_dump($this->name, $this->email, $this->bericht);
-    }
-
-    public function failedConn(){
         if ($this->conn->connect_error){
-            die("Connection failed: " . $this->conn->connect_error);
-        } else {
-            return "Succesfully connected";
-        }
+            die("Connection failed:" . $this->conn->connect_error);
+        } 
     }
 
     public function storeInfo()
     {
-        if (!isset($this->name) && isset($this->email) && isset($this->bericht)) {
-            echo "Store failed";
-        } else {
-            if (isset($this->name) && isset($this->email) && isset($this->bericht)) {
-                if ($this->conn->query($this->store) === TRUE) {
-                    echo "New record created successfully";
-                } else {
-                    echo "Error: " . $this->store . "<br>" . $this->conn->error;
-                }
-            }
-        }
+        // if (!isset($this->name) && isset($this->email) && isset($this->bericht)) {
+        //     echo "Store failed";
+        // } else {
+        //     if (isset($this->name) && isset($this->email) && isset($this->bericht)) {
+        //         if ($this->conn->query($this->store) === TRUE) {
+        //             echo "New record created successfully";
+        //         } else {
+        //             echo "Error: " . $this->store . "<br>" . $this->conn->error;
+        //         }
+        //     }
+        // }
+
+
+
     }
 
 

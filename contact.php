@@ -39,7 +39,6 @@ require_once 'DB.php';
 
 <?php
 $DB = new DB();
-
 $DB->storeInfo();
 
 
