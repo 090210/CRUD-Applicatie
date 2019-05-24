@@ -1,22 +1,26 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Reda
- * Date: 10-5-2019
- * Time: 10:52
- */
-?>
-<html>
-<head>
-    <title>php8_opdr01a | <?= basename(__FILE__, '.php'); ?></title>
-    </title>
-</head>
-<body>
-<header>
-    <a href="index.php">Home</a>
-    <a href="about.php">About</a>
-    <a href="contact.php">Contact</a>
-</header>
-</body>
-</html>
+<!DOCTYPE HTML>
+<hmtl>
 
+    <head>
+
+    </head>
+
+    <body>
+    <nav>
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="about.php">About</a></li>
+            <li><a href="contact.php">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <h1>About</h1>
+    <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+        Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
+        ascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat
+        massa
+        quis enim.</p>
+    </body>
+
+</hmtl>

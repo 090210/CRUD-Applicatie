@@ -1,49 +1,34 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Reda
- * Date: 10-5-2019
- * Time: 10:54
- */
-require_once 'DB.php';
-?>
-
+<!DOCTYPE HTML>
 <html>
-<head>
-    <title>php8_opdr01a | <?= basename(__FILE__, '.php'); ?></title>
-</title>
-</head>
-<body>
-<header>
-    <a href="index.php">Home</a>
-    <a href="about.php">About</a>
-    <a href="contact.php">Contact</a>
-</header>
 
-<form method="post">
+    <head>
 
-    <label for="name">Naam</label>
-    <input type="text" name="name" placeholder="Naam"><br>
+    </head>
 
-    <label for="email">E-mail</label>
-    <input type="text" name="email" placeholder="E-mail"><br>
-
-    <label for="bericht">Bericht</label>
-    <textarea rows="5" cols="25" name="bericht">
-    </textarea><br>
-
-    <input type="submit" value="Verzend">
-
-</form>
+    <body>
+    <nav>
+        <ul>
+            <li> <a href="index.php">Home</a> </li>
+            <li> <a href="about.php">About</a></li>
+            <li> <a href="contact.php">Contact</a></li>
+        </ul>
+    </nav>
 
 
-<?php
-$DB = new DB();
-$DB->storeInfo();
+    <form method="POST" action="addto.php">
+        Name:<br>
+        <input type="text" name="name" value="John Doe">
+        <br>
+        Email:<br>
+        <input type="email" name="email" value="JohnDoe@gmail.com">
+        <br>
+        Message:<br>
+        <textarea type="text" name="message"> </textarea>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
 
+    </body>
 
-
-
-?>
-</body>
 </html>
+
