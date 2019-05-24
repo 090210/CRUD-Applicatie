@@ -17,10 +17,10 @@
 
     <form method="POST" action="addto.php">
         Name:<br>
-        <input type="text" name="name" value="John Doe">
+        <input type="text" name="name">
         <br>
         Email:<br>
-        <input type="email" name="email" value="JohnDoe@gmail.com">
+        <input type="email" name="email">
         <br>
         Message:<br>
         <textarea type="text" name="message"> </textarea>

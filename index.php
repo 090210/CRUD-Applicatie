@@ -1,5 +1,10 @@
+<?php
+
+
+
+?>
 <!DOCTYPE HTML>
-<hmtl>
+<html>
 
 <head>
 
@@ -22,4 +27,4 @@
     quis enim.</p>
 </body>
 
-</hmtl>
+</html>

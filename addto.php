@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "php8_opdr02";
+$dbname = "php8_opdr01a";
 
 // Database connectie maken
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -25,12 +25,36 @@ $sql = "INSERT INTO contacts (name, email, message) VALUES
 //Uitvoeren van de query (insert), $result wordt true indien het lukt
 $result = $conn->query($sql);
 
-//check of het gelukt is
+?>
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+</head>
+
+<body>
+<nav>
+    <ul>
+        <li> <a href="index.php">Home</a> </li>
+        <li> <a href="about.php">About</a></li>
+        <li> <a href="contact.php">Contact</a></li>
+    </ul>
+</nav>
+<?php
 if (!$result) {
     die ("Oeps er is iets fout gegaan :( ");
 } else {
-    header('Location: index.php');
+    echo 'Succesvol in de DB toegevoegd';
 }
+
+?>
+</body>
+
+</html>
+
+
 
 
 
