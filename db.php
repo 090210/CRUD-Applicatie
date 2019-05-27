@@ -10,7 +10,6 @@ $username = "root";
 $password = "";
 $dbname = "php8_opdr01a";
 
-// Database connectie maken
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connectie
