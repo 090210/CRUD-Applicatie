@@ -5,7 +5,6 @@
  * Date: 24-5-2019
  * Time: 11:03
  */
-// Database gegevens (beter om deze in een apart bestand te zetten)
 $servername = "localhost";
 $username = "root";
 $password = "";
