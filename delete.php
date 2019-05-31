@@ -14,6 +14,6 @@ require_once('db.php');
 	{
 		$id = $_GET['del'];
 		$sql= "DELETE FROM contacts WHERE id='$id'";
-		$res= mysqli_query($conn, $sql) or die("Failed" . $conn->connect_error);
+		$res= mysqli_query($conn, $sql) or die("Failed");
 		echo "Query deleted succesfully, go back to <a href='index.php'>home</a>";
 	}
