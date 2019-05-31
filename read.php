@@ -4,28 +4,18 @@
         <li><a href="about.php">About</a></li>
         <li><a href="contact.php">Contact</a></li>
         <li><a href="read.php">Read Data</a></li>
-        <li><a href="delete.php">Delete Data</a></li>
     </ul>
 </nav>
 
 <?php
+    require_once 'db.php';
+    
+    $res = mysqli_query($conn, "SELECT * FROM contacts");
 
-
-require 'db.php';
-
-$sql = "SELECT * FROM contacts";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "ID: " . $row["id"]. " - Naam: " . $row["name"]. " - E-mail: " . $row["email"]. " - Message: " . $row["message"]. "<br>";
-    }
-} else {
-    echo "0 results";
-}
-$conn->close();
-
-
+	while( $row = mysqli_fetch_array($res) )
+	  echo "ID: $row[id] | name: $row[name] | e-mail: $row[email] | message: $row[message] |
+                <a href='edit.php?edit=$row[id]'>edit</a>
+                <a href='delete.php?del=$row[id]'>delete</a><br />";
 
 ?>
+
