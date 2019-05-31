@@ -6,7 +6,7 @@
         <li><a href="read.php">Read Data</a></li>
     </ul>
 </nav>
-
+<p>Click <a href='delete.php?all'>here</a> to delete everything</p>
 <?php
     require_once 'db.php';
     
