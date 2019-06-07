@@ -77,10 +77,12 @@ class Functions
             $this->row = mysqli_fetch_array($res);
         }
 
-        if (isset($_POST['name'])) {
+        if (isset($_POST['name']) && isset($_POST['email'])) {
             $name = $_POST['name'];
+            $email = $_POST['email'];
+            $message = $_POST['message'];
             $id = $_POST['id'];
-            $sql = "UPDATE contacts SET name='$name' WHERE id='$id'";
+            $sql = "UPDATE contacts SET name='$name', email='$email', message='$message' WHERE id='$id'";
             $res = mysqli_query($this->conn, $sql)
             or die("Could not update");
             echo "<meta http-equiv='refresh' content='0;url=read.php'>";
