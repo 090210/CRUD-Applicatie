@@ -8,14 +8,9 @@
 </nav>
 <p>Click <a href='delete.php?all'>here</a> to delete everything</p>
 <?php
-    require_once 'db.php';
-    
-    $res = mysqli_query($conn, "SELECT * FROM contacts");
-
-	while( $row = mysqli_fetch_array($res) )
-	  echo "ID: $row[id] | name: $row[name] | e-mail: $row[email] | message: $row[message] |
-                <a href='edit.php?edit=$row[id]'>edit</a>
-                <a href='delete.php?del=$row[id]'>delete</a><br />";
-
+require_once 'functions.php';
+$function = new Functions;
+$function->dbConnection();
+$function->read();
 ?>
 
