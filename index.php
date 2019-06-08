@@ -1,10 +1,8 @@
 <!DOCTYPE HTML>
 <html>
-
 <head>
 
 </head>
-
 <body>
 <nav>
     <ul>

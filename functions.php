@@ -13,6 +13,7 @@ class Functions
     private $email;
     public $conn;
     public $row;
+    public $result;
 
     function dbConnection()
     {
@@ -35,12 +36,12 @@ class Functions
         $this->sql = "INSERT INTO contacts (name, email, message) VALUES 
 		    ('$this->name', '$this->email','$this->message')";
 
-        $result = $this->conn->query($this->sql);
+        $this->result = $this->conn->query($this->sql);
 
-        if (!$result) {
+        if (!$this->result) {
             die ("Oeps er is iets fout gegaan :( ");
         } else {
-            echo "<meta http-equiv='refresh' content='0;url=index.php'>";
+            echo '<script>alert("Succesvol in de database toegevoegd")</script>';
         }
 
     }
