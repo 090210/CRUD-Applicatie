@@ -10,7 +10,6 @@
 <?php
 require_once 'functions.php';
 $function = new Functions;
-$function->dbConnection();
 $function->read();
 ?>
 

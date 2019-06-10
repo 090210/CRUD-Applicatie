@@ -1,8 +1,6 @@
-<?php
-require_once 'functions.php';
+<!-- <?php
+require_once('functions.php');
 $function = new Functions;
-
-$function->dbConnection();
 $function->edit();
 
 ?>
@@ -13,4 +11,4 @@ $function->edit();
     <label>Message:</label><br>
     <textarea type="text" name="message"><?php echo $function->row[3];?></textarea><br/><br>
     <input type="submit" value=" Update "/>
-</form>
+</form> -->
