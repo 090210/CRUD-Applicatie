@@ -2,7 +2,6 @@
 require 'Connection.php';
 class Functions extends Connection
 {
-
     function addTo($name, $email, $message)
     {
         Connection::openConnection();
@@ -42,23 +41,31 @@ class Functions extends Connection
     }
 
     // TODO: make edit
-    // function edit()
+    // function edit($name, $email, $message)
     // {
     //     Connection::openConnection();
     //     if (isset($_GET['edit'])) {
     //         $id = $_GET['edit'];
-    //         // $res = mysqli_query($this->conn, "SELECT * FROM contacts WHERE id='$id'");
-    //         // $this->row = mysqli_fetch_array($res);
-    //         $sql = "SELECT * FROM contacts WHERE id='$id'";
-    //         $query = Connection::$conn->query($sql) or die("Failed");
-    //         $row = $query->fetch(Connection::$conn->FETCH_ASSOC);
+    //         $sql = Connection::$conn->prepare('SELECT * FROM contacts WHERE id = :id');
+    //         $sql->bindParam(':id', $id);
+    //         $sql->fetchAll();
     //     }
-    //     if (isset($_POST['name']) && isset($_POST['email'])) {
-    //         $name = $_POST['name'];
-    //         $email = $_POST['email'];
-    //         $message = $_POST['message'];
-    //         $id = $_POST['id'];
-    //         $sql = "UPDATE contacts SET name='$name', email='$email', message='$message' WHERE id='$id'";
+    //     if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message'])) {
+    //         // $id = $_POST['id'];
+    //         // $name = $_POST['name'];
+    //         // $email = $_POST['email'];
+    //         // $message = $_POST['message'];
+    //         // Connection::openConnection();
+    //         // $db = Connection::$conn->prepare('INSERT INTO contacts (name, email, message) VALUES ((:name), (:email), (:message))');
+    //         // $db->bindParam(':name', $name);
+    //         // $db->bindParam(':email', $email);
+    //         // $db->bindParam(':message', $message);
+    //         // $db->execute();
+    //         // return (true);
+    //         $sql = Connection::$conn->prepare('UPDATE contacts SET name= :name, email = :email, message = :message WHERE id= :id');
+    //         $sql->bindParam(':name', $name);
+    //         $sql->bindParam(':email', $email);
+    //         $sql->bindParam(':message', $message);
     //         Connection::$conn->query($sql) or die("Failed");
     //         echo "<meta http-equiv='refresh' content='0;url=read.php'>";
     //     }
