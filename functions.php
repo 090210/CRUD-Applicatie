@@ -40,7 +40,7 @@ class Functions extends Connection
         }
     }
 
-    // TODO: make edit
+    // TODO: make edit gitpod test
     // function edit($name, $email, $message)
     // {
     //     Connection::openConnection();
