@@ -2,41 +2,43 @@
 require 'Connection.php';
 class Functions extends Connection
 {
+    public $stmt;
     public $row;
+
     public function create($name, $email, $message)
     {
         Connection::openConnection();
-        $db = Connection::$conn->prepare('INSERT INTO contacts (name, email, message) VALUES ((:name), (:email), (:message))');
-        $db->bindParam(':name', $name);
-        $db->bindParam(':email', $email);
-        $db->bindParam(':message', $message);
-        $db->execute();
-        return (true);
+        $sql = "INSERT INTO contacts (name, email, message) VALUES (:name, :email, :message)";
+        $this->stmt = Connection::$conn->prepare($sql);
+        $this->stmt->bindParam(':name', $name);
+        $this->stmt->bindParam(':email', $email);
+        $this->stmt->bindParam(':message', $message);
+        $this->stmt->execute();
+        return true;
     }
 
+    //Alle records uitlezen
     public function read()
     {
         Connection::openConnection();
         $sql = 'SELECT * FROM contacts';
-        foreach (Connection::$conn->query($sql) as $row) {
-            echo "ID: $row[id] | name: $row[name] | e-mail: $row[email] | message: $row[message] |
-            <a href='edit.php?edit=$row[id]'>edit</a>
-            <a href='delete.php?del=$row[id]'>delete</a><br />";
-        }
+        $this->stmt = Connection::$conn->prepare($sql);
+        $this->stmt->execute();
     }
     public function update()
     {
-   
+
         Connection::openConnection();
 
-    
-        if (isset($_GET['edit'])) {
-            $id = $_GET['edit'];
+
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
             $sql = " SELECT * FROM contacts WHERE id= :id ";
             $stmt = Connection::$conn->prepare($sql);
             $stmt->bindParam(':id', $id);
             $stmt->execute();
             $this->row = $stmt->fetch(PDO::FETCH_ASSOC);
+
         }
 
         if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message'])) {
@@ -51,11 +53,9 @@ class Functions extends Connection
             $stmt->bindParam(':message', $message);
             $stmt->bindParam(':id', $id);
             $stmt->execute();
-            var_dump($name);
-            // echo "<meta http-equiv='refresh' content='0;url=read.php'>";
-
+            header("location: read.php");
+        }
     }
-}
 
     public function delete()
     {
@@ -64,12 +64,12 @@ class Functions extends Connection
             $id = $_GET['del'];
             $sql = "DELETE FROM contacts WHERE id='$id'";
             Connection::$conn->query($sql) or die("Failed");
-            echo "Query deleted succesfully, go <a href='read.php'>back</a>";
+            header("location: read.php");
         }
         if (isset($_GET['all'])) {
             $sql = "DELETE FROM contacts";
             Connection::$conn->query($sql) or die("Failed");
-            echo "Query deleted everything, go <a href='read.php'>back</a>";
+            header("location: read.php");
         }
     }
 }
