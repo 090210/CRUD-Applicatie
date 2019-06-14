@@ -36,7 +36,7 @@ if(isset($_POST['name'], $_POST['email'], $_POST['message'])){
     if (!empty($_POST['name']) AND $_POST['email'] AND $_POST['message']) {
         require_once('Functions.php');
         $function = new Functions;    
-        if($function->addTo($_POST['name'], $_POST['email'], $_POST['message'])){
+        if($function->create($_POST['name'], $_POST['email'], $_POST['message'])){
             echo '<script>alert("Succesvol in de database toegevoegd"); </script>';
         }
     } else {

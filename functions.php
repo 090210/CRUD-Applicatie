@@ -2,7 +2,8 @@
 require 'Connection.php';
 class Functions extends Connection
 {
-    function addTo($name, $email, $message)
+    public $row;
+    public function create($name, $email, $message)
     {
         Connection::openConnection();
         $db = Connection::$conn->prepare('INSERT INTO contacts (name, email, message) VALUES ((:name), (:email), (:message))');
@@ -13,7 +14,7 @@ class Functions extends Connection
         return (true);
     }
 
-    function read()
+    public function read()
     {
         Connection::openConnection();
         $sql = 'SELECT * FROM contacts';
@@ -23,8 +24,40 @@ class Functions extends Connection
             <a href='delete.php?del=$row[id]'>delete</a><br />";
         }
     }
+    public function update()
+    {
+   
+        Connection::openConnection();
 
-    function delete()
+    
+        if (isset($_GET['edit'])) {
+            $id = $_GET['edit'];
+            $sql = " SELECT * FROM contacts WHERE id= :id ";
+            $stmt = Connection::$conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+            $this->row = $stmt->fetch(PDO::FETCH_ASSOC);
+        }
+
+        if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message'])) {
+            $id = $_POST['id'];
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $message = $_POST['message'];
+            $sql = "UPDATE contacts SET name = :name, email= :email, message = :message WHERE id= :id";
+            $stmt = Connection::$conn->prepare($sql);
+            $stmt->bindParam(':name', $name);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':message', $message);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+            var_dump($name);
+            // echo "<meta http-equiv='refresh' content='0;url=read.php'>";
+
+    }
+}
+
+    public function delete()
     {
         Connection::openConnection();
         if (isset($_GET['del'])) {
@@ -40,34 +73,6 @@ class Functions extends Connection
         }
     }
 
-    // TODO: make edit
-    // function edit($name, $email, $message)
-    // {
-    //     Connection::openConnection();
-    //     if (isset($_GET['edit'])) {
-    //         $id = $_GET['edit'];
-    //         $sql = Connection::$conn->prepare('SELECT * FROM contacts WHERE id = :id');
-    //         $sql->bindParam(':id', $id);
-    //         $sql->fetchAll();
-    //     }
-    //     if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message'])) {
-    //         // $id = $_POST['id'];
-    //         // $name = $_POST['name'];
-    //         // $email = $_POST['email'];
-    //         // $message = $_POST['message'];
-    //         // Connection::openConnection();
-    //         // $db = Connection::$conn->prepare('INSERT INTO contacts (name, email, message) VALUES ((:name), (:email), (:message))');
-    //         // $db->bindParam(':name', $name);
-    //         // $db->bindParam(':email', $email);
-    //         // $db->bindParam(':message', $message);
-    //         // $db->execute();
-    //         // return (true);
-    //         $sql = Connection::$conn->prepare('UPDATE contacts SET name= :name, email = :email, message = :message WHERE id= :id');
-    //         $sql->bindParam(':name', $name);
-    //         $sql->bindParam(':email', $email);
-    //         $sql->bindParam(':message', $message);
-    //         Connection::$conn->query($sql) or die("Failed");
-    //         echo "<meta http-equiv='refresh' content='0;url=read.php'>";
-    //     }
-    // }
-}
+  
+    
+} 
