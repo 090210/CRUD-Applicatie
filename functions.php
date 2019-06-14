@@ -73,6 +73,40 @@ class Functions extends Connection
         }
     }
 
+<<<<<<< HEAD
   
     
 } 
+=======
+    // TODO: make edit gitpod test
+    // function edit($name, $email, $message)
+    // {
+    //     Connection::openConnection();
+    //     if (isset($_GET['edit'])) {
+    //         $id = $_GET['edit'];
+    //         $sql = Connection::$conn->prepare('SELECT * FROM contacts WHERE id = :id');
+    //         $sql->bindParam(':id', $id);
+    //         $sql->fetchAll();
+    //     }
+    //     if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['message'])) {
+    //         // $id = $_POST['id'];
+    //         // $name = $_POST['name'];
+    //         // $email = $_POST['email'];
+    //         // $message = $_POST['message'];
+    //         // Connection::openConnection();
+    //         // $db = Connection::$conn->prepare('INSERT INTO contacts (name, email, message) VALUES ((:name), (:email), (:message))');
+    //         // $db->bindParam(':name', $name);
+    //         // $db->bindParam(':email', $email);
+    //         // $db->bindParam(':message', $message);
+    //         // $db->execute();
+    //         // return (true);
+    //         $sql = Connection::$conn->prepare('UPDATE contacts SET name= :name, email = :email, message = :message WHERE id= :id');
+    //         $sql->bindParam(':name', $name);
+    //         $sql->bindParam(':email', $email);
+    //         $sql->bindParam(':message', $message);
+    //         Connection::$conn->query($sql) or die("Failed");
+    //         echo "<meta http-equiv='refresh' content='0;url=read.php'>";
+    //     }
+    // }
+}
+>>>>>>> 3f79594825228688e6585bf050b9ead8508c239c
