@@ -47,3 +47,5 @@ $function->read();
 </tbody>
 </table> 
 <a class="btn btn-danger col-md-3 d-flex justify-content-center m-auto" href="delete.php?all" role="button">Klik hier om elke record te verwijderen</a>
+</body>
+<?php include_once('footer.php'); ?>

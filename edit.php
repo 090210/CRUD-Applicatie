@@ -57,4 +57,4 @@ $function->update();
         </div>
     </form>
 </body>
-</html>
+<?php include_once('footer.php'); ?>
