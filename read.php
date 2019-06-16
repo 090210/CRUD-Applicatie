@@ -1,14 +1,11 @@
 <?php
 $title = 'Read';
 include_once('header.php');
+require_once 'functions.php';
+$function = new Functions;
+$function->read();
 
 ?>
-<style>
-.foo {
-    word-break: break-all;
-
-}
-    </style
 <body>
     <nav class="navbar navbar-expand-sm bg-light navbar-light">
         <ul class="navbar-nav">
@@ -26,13 +23,6 @@ include_once('header.php');
             </li>
         </ul>
     </nav>
-
-
-    <?php
-    require_once 'functions.php';
-    $function = new Functions;
-    $function->read();
-?>
 <table class="table table-striped">
 <thead>
   <tr>
@@ -41,7 +31,6 @@ include_once('header.php');
     <th scope="col">E-mail</th>
     <th scope="col">Message</th>
     <th scope="col">Update / delete</th>
-
   </tr>
 </thead>
 <tbody>
@@ -52,12 +41,9 @@ include_once('header.php');
             <td class='foo'><?= $row['email'] ?></td>
             <td class='foo'><?= $row['message'] ?></td>
             <td class='foo'><a href="delete.php?del=<?= $row['id'] ?>"><i class="fas fa-trash-alt text-danger"></i></a>&nbsp;&nbsp;<a href="edit.php?id=<?= $row['id'] ?>"><i class="fas fa-edit text-primary"></i></a></td>
-
-
         </tr>
     <?php endwhile; ?>
 
 </tbody>
 </table> 
-       
 <a class="btn btn-danger col-md-3 d-flex justify-content-center m-auto" href="delete.php?all" role="button">Klik hier om elke record te verwijderen</a>
