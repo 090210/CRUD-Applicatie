@@ -37,9 +37,9 @@ $function->read();
 <?php while ($row = $function->stmt->fetch(PDO::FETCH_ASSOC)) : ?>
         <tr>
             <th scope="row"><?= $row['id'] ?></th>
-            <td class='foo'><?= $row['name'] ?></td>
-            <td class='foo'><?= $row['email'] ?></td>
-            <td class='foo'><?= $row['message'] ?></td>
+            <td class='foo'><?= htmlspecialchars($row['name']) ?></td>
+            <td class='foo'><?= htmlspecialchars($row['email']) ?></td>
+            <td class='foo'><?= htmlspecialchars($row['message']) ?></td>
             <td class='foo'><a href="delete.php?del=<?= $row['id'] ?>"><i class="fas fa-trash-alt text-danger"></i></a>&nbsp;&nbsp;<a href="edit.php?id=<?= $row['id'] ?>"><i class="fas fa-edit text-primary"></i></a></td>
         </tr>
     <?php endwhile; ?>
